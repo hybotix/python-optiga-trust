@@ -82,6 +82,7 @@ def _scan_com_ports():
             com_port.description.startswith("USB Serial Device")
             or com_port.description.startswith("KitProg3")
             or com_port.description.startswith("Communications Port")
+            or com_port.description.startswith("IFX CDC")
         ):
             _set_com_port_config(com_port.device)
             comportFound = True
@@ -93,8 +94,8 @@ def _load_lib(interface, probing):
     if interface == "uart":
         if not _scan_com_ports():
             if not probing:
-                logger.error("No COM port found for UART connection!")
-            return
+                raise OSError("No COM port found for UART connection!")
+            raise OSError("Scan for COM port failed")
 
     libname = _get_lib_name(interface)
 

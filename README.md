@@ -93,6 +93,7 @@ python-optiga-trust
 | src/optigatrust       | Python module optigatrust                     |
 | tests                 | Tests for the Python module optigatrust       |
 
+
 ## Licensing
 
 Please see our [LICENSE](LICENSE) for copyright and license information.
